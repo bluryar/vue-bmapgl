@@ -1,0 +1,123 @@
+{
+  "name": "vue-bmapgl",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "🗺️ vue3 百度地图组件",
+  "author": "bluryar <bluryarl@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/bluryar/vue-bmapgl#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluryar/vue-bmapgl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bluryar/vue-bmapgl/issues"
+  },
+  "keywords": [
+    "bmapgl",
+    "bmap",
+    "vue",
+    "vue3",
+    "baidu"
+  ],
+  "sideEffects": true,
+  "scripts": {
+    "dev": "vite",
+    "dev:sb": "storybook dev --port 6006 --no-open",
+    "build": "run-p type:check build:only",
+    "build:sb": "storybook build",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "build:only": "vite build",
+    "type:check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.mdx --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "bump:major": "npx bumpp major --all --yes",
+    "bump:minor": "npx bumpp minor --all --yes",
+    "bump:patch": "npx bumpp patch --all --yes",
+    "release": "npm publish",
+    "prepare": "husky install"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "@vueuse/core": ">=10.0.0",
+    "lodash-es": ">=4.0.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "lodash-es": {
+      "optional": true
+    },
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@bluryar/composables": "^0.1.9",
+    "@bluryar/shared": "^0.1.9",
+    "vue-demi": "latest",
+    "vue-types": "^5.0.4"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.21.3",
+    "@bluryar/commitlint-config": "^1.1.2",
+    "@bluryar/eslint-config-vue": "^1.1.2",
+    "@iconify/json": "^2.2.79",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@storybook/addon-essentials": "^7.0.22",
+    "@storybook/addon-interactions": "^7.0.22",
+    "@storybook/addon-links": "^7.0.22",
+    "@storybook/blocks": "^7.0.22",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.22",
+    "@storybook/vue3-vite": "^7.0.22",
+    "@tsconfig/node18": "^2.0.1",
+    "@types/bmapgl": "^0.0.7",
+    "@types/jsdom": "^21.1.1",
+    "@types/node": "^18.16.17",
+    "@unocss/preset-icons": "^0.53.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/test-utils": "^2.3.2",
+    "@vue/tsconfig": "^0.4.0",
+    "@vueuse/core": "^10.1.2",
+    "@vueuse/shared": "^10.1.2",
+    "bumpp": "^9.1.1",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.6.5",
+    "cz-git": "^1.6.1",
+    "eslint": "^8.39.0",
+    "eslint-plugin-mdx": "^2.1.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "husky": "^8.0.3",
+    "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.22",
+    "taze": "^0.10.2",
+    "tsx": "^3.12.7",
+    "type-fest": "^3.11.1",
+    "typescript": "~5.0.4",
+    "unbuild": "^1.2.1",
+    "unocss": "^0.53.1",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.0",
+    "vue": "^3.0.0",
+    "vue-tsc": "^1.6.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx,cjs,mjs,cts,mts,yaml,md,yml,mdx}": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

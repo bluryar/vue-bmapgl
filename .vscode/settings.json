@@ -1,0 +1,112 @@
+{
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true, // this allows ESLint to auto fix on save
+    "source.organizeImports": false
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  "errorLens.enabledDiagnosticLevels": [
+    "warning",
+    "error"
+  ],
+  "errorLens.excludeBySource": [
+    "cSpell",
+    "Grammarly",
+    "eslint"
+  ],
+  "eslint.runtime": "node",
+  "eslint.execArgv": [
+    "--max_old_space_size=8192"
+  ],
+  // ESLint config: https://github.com/antfu/eslint-config
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.quiet": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "mdx",
+    "json",
+    "jsonc",
+    "json5"
+  ],
+  "auto-close-tag.activationOnLanguage": [
+    "vue",
+    "jsx",
+    "tsx",
+    "html",
+    "mdx"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": false,
+    "yaml": false
+  },
+  "cSpell.allowCompoundWords": true,
+  "cSpell.language": "en,en-US",
+  "css.lint.hexColorLength": "ignore",
+  "GitCommitPlugin.Templates": [
+    {
+      "templateName": "Angular",
+      "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
+      "default": true
+    }
+  ],
+  "cSpell.words": [
+    "antfu",
+    "Attributify",
+    "bluryar",
+    "BMAP",
+    "bmapgl",
+    "bumpp",
+    "commitlintrc",
+    "demi",
+    "unocss",
+    "vnode",
+    "vueuse"
+  ],
+  "volar.takeOverMode.extension": "Vue.volar",
+  "vue.complete.normalizeComponentImportName": true,
+  "vue.codeActions.savingTimeLimit": 2000,
+  "vue.updateImportsOnFileMove.enabled": true,
+  "references.preferredLocation": "peek",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "testing.automaticallyOpenPeekView": "never",
+  "mdx.experimentalLanguageServer": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
