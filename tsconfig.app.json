@@ -9,11 +9,13 @@
     "src/assets/bmapgl.js"
   ],
   "exclude": [
-    "src/**/__tests__/*"
+    ".test/*",
+    "src/**/__tests__/*",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
   ],
   "compilerOptions": {
     "composite": true,
-    "moduleResolution": "node",
     "allowJs": true,
     "checkJs": false,
     "types": [

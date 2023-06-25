@@ -4,7 +4,7 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
   root: true,
-  extends: ['@bluryar/vue', 'plugin:storybook/recommended', 'plugin:mdx/recommended'],
+  extends: ['@bluryar/vue', 'plugin:storybook/recommended', 'plugin:mdx/recommended', './auto-eslintrc.json'],
   globals: {
     VITE_BMAP_AK: true,
     BMapGL: true,
