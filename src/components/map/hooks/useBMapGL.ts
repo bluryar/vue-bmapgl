@@ -1,4 +1,3 @@
-import { type UseBMapGLScriptOptions, useBMapGLScript } from '@bluryar/composables';
 import { isNil } from '@bluryar/shared';
 import { tryOnMounted, tryOnScopeDispose } from '@vueuse/core';
 import {
@@ -14,13 +13,14 @@ import {
   watch,
 } from 'vue';
 import { useOfflineBMapGLScript } from './useOfflineBMapGLScript';
+import { type UseBMapGLScriptOptions, useBMapGLScript } from '@/hooks';
 
 export interface UseBMapGLOptions {
   /** 百度地图的ak */
   ak?: string;
 
   /**
-   * 是否使用离线脚本
+   * 是否使用离线脚本, 离线脚本无法保证版本更新以及可用性
    */
   offline?: boolean;
 
@@ -80,8 +80,8 @@ export function useBMapGL(options?: UseBMapGLOptions) {
   loading.value = !!1;
   tryOnMounted(setup);
 
-  async function onLoaded() {
-    const mapInst = new BMapGL.Map(_domRef.value as HTMLDivElement, {
+  async function onLoaded(dom: HTMLDivElement): Promise<BMapGL.Map> {
+    const mapInst = new BMapGL.Map(dom as HTMLDivElement, {
       ...toValue(mapOptions),
     });
 
@@ -95,7 +95,7 @@ export function useBMapGL(options?: UseBMapGLOptions) {
 
     await nextTick();
 
-    mapInstance.value = mapInst;
+    return mapInst;
   }
 
   function onUnloaded() {
@@ -107,9 +107,10 @@ export function useBMapGL(options?: UseBMapGLOptions) {
 
   watch([loaded, _domRef], ([val, dom]) => {
     if (val && dom) {
-      scoop.run(() => {
+      scoop.run(async () => {
         loading.value = !!0;
-        onLoaded();
+        const mapInst = await onLoaded(_domRef.value as HTMLDivElement);
+        mapInstance.value = mapInst;
       });
     }
   });
@@ -126,5 +127,6 @@ export function useBMapGL(options?: UseBMapGLOptions) {
     domRef: _domRef,
     mapInstance,
     loading: computed(() => [loading, scriptLoading].some(toValue)),
+    error,
   };
 }
